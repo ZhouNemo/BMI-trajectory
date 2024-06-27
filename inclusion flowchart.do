@@ -20,7 +20,7 @@ drop if BMI > 50
 distinct id
 
 * Create a tag for the first observation of each individual
-bysort id: gen first_obs = _n == 1
+bysort id: gen first_obs = _n == 1              // 这个忘记先sort id wave了，这个排在第一个不一定真的是第一个观测
 
 * Summarize the distribution of BMI for unique individuals
 histogram BMI if first_obs, frequency
